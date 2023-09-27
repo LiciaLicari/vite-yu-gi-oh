@@ -1,6 +1,21 @@
+<script>
+import { store } from '../store.js'
+export default {
+    name: 'AppMain',
+    data() {
+        return {
+            store
+        }
+    },
+    created() {
+        store.fetchData();
+    }
+}
+</script>
+
 <template>
     <main class="py-4">
-        <div class="container bg-white">
+        <div class="container bg-white" v-if="store">
             <div class="row p-2">
                 <div class="my_col p-1" v-for=" card  in   store.cards  " v-show="card.archetype === 'Alien'">
                     <div class="card my-2 h-100">
@@ -17,23 +32,13 @@
                 </div>
             </div>
         </div>
+        <div v-else>
+            Caricamento
+        </div>
+
     </main>
 </template>
 
-<script>
-import { store } from '../store.js'
-export default {
-    name: 'AppMain',
-    data() {
-        return {
-            store
-        }
-    },
-    created() {
-        store.fetchData();
-    }
-}
-</script>
 
 <style lang="scss" scoped>
 @use '../src/assets/scss/partials/variables' as *;
