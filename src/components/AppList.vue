@@ -1,12 +1,13 @@
 <script>
 import { store } from '../store.js'
-
+import AppCard from "./AppCard.vue"
 
 export default {
     name: 'AppList',
-    emits:['select-filter'],
+    components: {
+        AppCard
+    },
     
-
     data() {
         return {
             store
@@ -16,12 +17,10 @@ export default {
 </script>
 
 <template>
-    <div class="filter">
-        <select class="form-select" id="select" @change="$emit('select-filter')" v-model="store.selectedArchetype">
-            <option value="" selected="selected" hidden="hidden">search</option>
-            <option v-for="archetype in store.archetypes" :value="archetype.archetype_name">{{archetype.archetype_name}}</option>
-            
-        </select>
+    <div class="container py-4 bg-white">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-5 p-2">
+            <AppCard v-for="card in store.cards" :card="card"></AppCard>
+        </div>
     </div>
 </template>
 

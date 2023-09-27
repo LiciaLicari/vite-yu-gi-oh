@@ -9,7 +9,7 @@ export default {
 </script>
 
 <template>
-    <div class="my-col p-1 d-flex flex-column text-center mb-2">
+    <div class="col p-1 d-flex flex-column text-center mb-2">
         <div class="card rounded-0 border-0">
             <div class="card_img">
                 <img class="img" :src='card.card_images[0].image_url' alt="">

@@ -11,15 +11,15 @@ export default {
         }
     },
     created() {
-        store.fetchData(this.store.base_url)
+        store.fetchData(store.base_url)
         store.fetchFilter()
     },
 
     methods: {
         filterArch() {
-            console.log(store.searchFilter);
-            //console.log(this.store.base_url);
-            const archUrl = 'https://db.ygoprodeck.com/api/v7/cardinfo.php?' + `archetype=${store.searchFilter}&` + 'num=1000&offset=0';
+            console.log(store.selectedArchetype);
+            //console.log(store.base_url);
+            const archUrl = 'https://db.ygoprodeck.com/api/v7/cardinfo.php?' + `archetype=${store.selectedArchetype}&` + 'num=1000&offset=0';
             console.log(archUrl);
             store.fetchData(archUrl);
         }

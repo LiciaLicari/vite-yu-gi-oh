@@ -16,9 +16,7 @@ export default {
  
   components:{
     AppHeader,
-    AppMain,
-    
-
+    AppMain
   },
   
 }
