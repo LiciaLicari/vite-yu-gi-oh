@@ -1,17 +1,18 @@
 <script>
 import { store } from '../store.js'
 
-
 export default {
-    name: 'AppList',
+    name: 'AppSearch',
     emits:['select-filter'],
-    
 
     data() {
-        return {
-            store
-        }
-    },
+
+return {
+    store
+}
+},
+
+
 }
 </script>
 
@@ -24,5 +25,7 @@ export default {
         </select>
     </div>
 </template>
+
+
 
 <style lang="scss" scoped></style>

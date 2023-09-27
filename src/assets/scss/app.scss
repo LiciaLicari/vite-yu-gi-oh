@@ -7,3 +7,49 @@
     height: 50px;
     margin-right: 1rem;
 }
+main {
+    background: $yugioh__bg;
+}
+
+.my_col {
+    flex: 0 0 auto;
+    width: calc(100% / 5);
+}
+
+.card_data {
+    height: auto;
+    text-align: center;
+
+    p {
+        color: $yugioh__card_name;
+        margin: 0;
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: -0.5px;
+        font-weight: 600;
+    }
+
+    span {
+        font-weight: 300;
+        font-size: 0.8rem;
+
+    }
+}
+
+.card{
+    background-color: $yugioh__bg;
+    height: 100%;
+  }
+  
+  .img{
+    width: 100%;
+  }
+  .card_name{
+    color: white;
+    text-transform: uppercase;
+    padding: 0.5rem;
+  }
+  
+  .card_category{
+    justify-self: flex-end ;
+  }

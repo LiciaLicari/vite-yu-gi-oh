@@ -1,5 +1,8 @@
 <script>
-import { store } from '../store.js'
+import { store } from '../store.js';
+import AppList from './AppList.vue';
+import AppSearch from './AppSearch.vue';
+
 export default {
     name: 'AppMain',
     data() {
@@ -8,35 +11,31 @@ export default {
         }
     },
     created() {
-        store.fetchData();
+        store.fetchData(this.store.base_url)
+        store.fetchFilter()
     },
-    methods: {
 
+    methods: {
+        filterArch() {
+            console.log(store.searchFilter);
+            //console.log(this.store.base_url);
+            const archUrl = 'https://db.ygoprodeck.com/api/v7/cardinfo.php?' + `archetype=${store.searchFilter}&` + 'num=1000&offset=0';
+            console.log(archUrl);
+            store.fetchData(archUrl);
+        }
     },
+
+    components: { AppList, AppSearch }
 }
 </script>
 
 <template>
     <main class="py-4">
-        <div class="container bg-white" v-if="store">
-            <div class="row p-2">
-                <div class="my_col p-1" v-for=" card  in   store.cards  " v-show="card.archetype = 'Alien'">
-                    <div class="card my-2 h-100">
-                        <div class="card-header p-0">
-                            <img class="w-100" :src='card.card_images[0].image_url' alt="">
-                        </div>
-                        <div class="card-body d-flex flex-column justify-content-center align-items-center p-1">
-                            <div class="card_data">
-                                <p>{{ card.name }}</p>
-                                <span>{{ card.archetype }}</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <AppSearch @select-filter="filterArch"></AppSearch>
+        <AppList v-if="store"></AppList>
+       
         <div v-else>
-            Caricamento
+            Loading
         </div>
 
     </main>
@@ -46,32 +45,4 @@ export default {
 <style lang="scss" scoped>
 @use '../src/assets/scss/partials/variables' as *;
 
-main {
-    background: $yugioh__bg;
-}
-
-.my_col {
-    flex: 0 0 auto;
-    width: calc(100% / 5);
-}
-
-.card_data {
-    height: auto;
-    text-align: center;
-
-    p {
-        color: $yugioh__card_name;
-        margin: 0;
-        font-size: 0.8rem;
-        text-transform: uppercase;
-        letter-spacing: -0.5px;
-        font-weight: 600;
-    }
-
-    span {
-        font-weight: 300;
-        font-size: 0.8rem;
-
-    }
-}
 </style>
