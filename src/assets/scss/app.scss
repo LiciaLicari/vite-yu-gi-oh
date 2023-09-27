@@ -11,6 +11,10 @@ main {
     background: $yugioh__bg;
 }
 
+.filter {
+  background-color: rgb(223, 86, 44);
+}
+
 .my_col {
     flex: 0 0 auto;
     width: calc(100% / 5);

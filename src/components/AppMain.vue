@@ -31,11 +31,15 @@ export default {
 
 <template>
     <main class="py-4">
-        <AppSearch @select-filter="filterArch"></AppSearch>
-        <AppList v-if="store"></AppList>
-       
-        <div v-else>
-            Loading
+        <div class="container">
+
+            <AppSearch @select-filter="filterArch"></AppSearch>
+    
+            <AppList v-if="store"></AppList>
+           
+            <div v-else>
+                Loading
+            </div>
         </div>
 
     </main>

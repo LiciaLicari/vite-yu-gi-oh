@@ -17,7 +17,7 @@ return {
 </script>
 
 <template>
-    <div class="filter">
+    <div class="filter py-4 px-4 mb-2">
         <select class="form-select" id="select" @change="$emit('select-filter')" v-model="store.selectedArchetype">
             <option value="" selected="selected" hidden="hidden">search</option>
             <option v-for="archetype in store.archetypes" :value="archetype.archetype_name">{{archetype.archetype_name}}</option>
@@ -28,4 +28,6 @@ return {
 
 
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+
+</style>
