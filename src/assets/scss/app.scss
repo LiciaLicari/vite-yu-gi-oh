@@ -1,0 +1,9 @@
+@use '/node_modules/bootstrap/scss/bootstrap.scss';
+@use './partials/variables' as *;
+
+
+.logo {
+    width: 120px;
+    height: 50px;
+    margin-right: 1rem;
+}
