@@ -9,7 +9,10 @@ export default {
     },
     created() {
         store.fetchData();
-    }
+    },
+    methods: {
+
+    },
 }
 </script>
 
@@ -17,7 +20,7 @@ export default {
     <main class="py-4">
         <div class="container bg-white" v-if="store">
             <div class="row p-2">
-                <div class="my_col p-1" v-for=" card  in   store.cards  " v-show="card.archetype === 'Alien'">
+                <div class="my_col p-1" v-for=" card  in   store.cards  " v-show="card.archetype = 'Alien'">
                     <div class="card my-2 h-100">
                         <div class="card-header p-0">
                             <img class="w-100" :src='card.card_images[0].image_url' alt="">
